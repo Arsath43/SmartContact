@@ -18,17 +18,17 @@ public class contact {
 	private int CID;
 	
 	private String Name;
-	@Column(unique= true)
+
 	private String email;
 	private String Secondname;
 	
-	private String Password;
+
 	private String work;
 	@Column(length=500)
 	private String description;
 	
 	
-	
+	private String Image;
 	
 	private String phone;
 	
@@ -51,7 +51,7 @@ public class contact {
 		return email;
 	}
 	public void setEmail(String email) {
-		email = email;
+		this.email = email;
 	}
 	public String getSecondname() {
 		return Secondname;
@@ -59,14 +59,16 @@ public class contact {
 	public void setSecondname(String secondname) {
 		Secondname = secondname;
 	}
-	public String getPassword() {
-		return Password;
-	}
-	public void setPassword(String password) {
-		Password = password;
-	}
+
 	public String getWork() {
 		return work;
+	}
+//	
+	public String getImage() {
+		return Image;
+	}
+	public void setImage(String image) {
+		Image = image;
 	}
 	public void setWork(String work) {
 		this.work = work;
@@ -83,13 +85,8 @@ public class contact {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public String getImageurl() {
-		return Imageurl;
-	}
-	public void setImageurl(String imageurl) {
-		Imageurl = imageurl;
-	}
-	private String Imageurl;
+	
+	
 
 	public User getUser() {
 		return user;

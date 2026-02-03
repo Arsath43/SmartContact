@@ -17,7 +17,7 @@
 	
 	<!-- navbar-->
 	
-	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+	<nav class="fixed-top navbar navbar-expand-lg navbar-dark bg-primary">
 	  <a class="navbar-brand" href="#">Smart Contact Manager</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
@@ -51,16 +51,16 @@
 	
 	<!---sidebar -->
 	
-<div class ="sidebar">
+<div class ="sidebar mt-2">
 	
 	<span onclick ="toggleSidebar()" class="crossBtn">&times;</span >
 	
-	<a href="#" class="item"><i class="fas fa-home"></i>Home</a>
-	<a href="#" class="item"><i class="fas fa-id-card-alt"></i>View Contacts</a>
-	<a href="#" class="item"><i class="fas fa-pencil-alt"></i>Add contacts</a>
-	<a href="#" class="item"><i class="fas fa-user-circle"></i>Your profile</a>
-	<a href="#" class="item"><i class="fas fa-cogs"></i>Setting</a>
-	<a href="#" class="item"><i class="fas fa-sign-out-alt"></i>LogOut</a>
+	<a href="#" th:href="@{/user/index}" class="item"><i class="fas fa-home"></i>Home</a>
+	<a href="#" class="item"><i class="fas fa-id-card-alt"></i> View Contacts</a>
+	<a href="#" th:href="@{/user/add-contact}" class="item"><i class="fas fa-pencil-alt"></i> Add contacts</a>
+	<a href="#" class="item"><i class="fas fa-user-circle"></i> Your profile</a>
+	<a href="#" class="item"><i class="fas fa-cogs"></i> Setting</a>
+	<a href="#"th:href="@{/logout}" class="item"><i class="fas fa-sign-out-alt"></i> LogOut</a>
 	<div class="divider"></div>
     
 	</div>
@@ -68,10 +68,28 @@
 	<!---End	sidebar -->
 	
 		<!---Content	area -->
-				<div class ="content">
+				<div class ="content mt-5">
 	
 					
 					<i onclick ="toggleSidebar()"class="fas fa-bars m-3"></i>
+					
+					<!---Message box -->
+					<div th:if="${message}"  class="container">
+					<div th:classappend="'alert-'+${message.type}"   
+					class="alert text-center"
+					 role="alert">
+					 
+						<span th:text="${message.content}"> 
+							
+						</span>
+						Add more
+						 
+					</div>
+					
+				<!----	<th:block th:text="${#session.removeAttribute('message')}">
+						<th:block>
+						-->	
+					</div>
 	<div th:replace="${content}"></div>
 	
 </div>
